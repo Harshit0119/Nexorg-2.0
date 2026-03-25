@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Play, Sparkles, Clock, Users, CheckCircle } from "lucide-react"
@@ -125,8 +126,8 @@ export function HeroSection() {
                     { time: "10:00 AM", slots: ["English", "Math 101", "Physics", "Chemistry", "English"] },
                     { time: "11:00 AM", slots: ["Break", "Break", "Break", "Break", "Break"] },
                   ].map((row, i) => (
-                    <>
-                      <div key={`time-${i}`} className="border-r border-b border-border p-3 text-xs text-muted-foreground">
+                    <React.Fragment key={`row-${i}`}>
+                      <div className="border-r border-b border-border p-3 text-xs text-muted-foreground">
                         {row.time}
                       </div>
                       {row.slots.map((slot, j) => (
@@ -143,7 +144,7 @@ export function HeroSection() {
                           {slot}
                         </div>
                       ))}
-                    </>
+                    </React.Fragment>
                   ))}
                 </div>
               </div>
